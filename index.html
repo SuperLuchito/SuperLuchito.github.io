@@ -17,20 +17,20 @@
   </style>
 </head>
 <body>
-<canvas id="game" width="480" height="320"></canvas>
+<canvas id="game" width="680" height="520"></canvas>
 <script>
   const canvas = document.getElementById('game');
   const ctx = canvas.getContext('2d');
   
   ctx.beginPath();
-  ctx.rect(20, 40, 50, 50);
-  ctx.fillStyle = '#FF0000';
+  ctx.rect(40, 60, 70, 70);
+  ctx.fillStyle = '#FF1493';
   ctx.fill();
   ctx.closePath();
   
   ctx.beginPath();
   ctx.arc(240, 160, 20, 0, Math.PI * 2, false);
-  ctx.fillStyle = 'green';
+  ctx.fillStyle = 'purple';
   ctx.fill();
   ctx.closePath();
 
@@ -39,6 +39,24 @@
   ctx.strokeStyle = 'rgba(0, 0, 255, 0.5)';
   ctx.stroke();
   ctx.closePath();
+
+  function strokeStar(x, y, r, n, inset) {
+    ctx.save();
+    ctx.beginPath();
+    ctx.translate(x, y);
+    ctx.moveTo(0, 0 - r);
+    for (var i = 0; i < n; i++) {
+        ctx.rotate(Math.PI / n);
+        ctx.lineTo(0, 0 - (r * inset));
+        ctx.rotate(Math.PI / n);
+        ctx.lineTo(0, 0 - r);
+    }
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+}
+strokeStar(20, 20, 40, 5, 5)
+  
 </script>
 </body>
 </html>
