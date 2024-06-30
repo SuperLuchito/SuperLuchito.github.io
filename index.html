@@ -16,7 +16,7 @@
   </style>
 </head>
 <body>
-<canvas id="game" width="680" height="520"></canvas>
+<canvas id="game" width="1080" height="920"></canvas>
 <script>
   const canvas = document.getElementById('game');
   const ctx = canvas.getContext('2d');
@@ -24,8 +24,8 @@
   let x = canvas.width / 2;
   let y = canvas.height - 30;
 
-  const dx = 2;
-  const dy = -2;
+  const dx = 10;
+  const dy = -10;
 
   function drawBall() {
   ctx.beginPath();  
