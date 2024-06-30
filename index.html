@@ -8,7 +8,6 @@
       padding: 0;
       margin: 0;
     }
-
     canvas {
       background: #eee;
       display: block;
@@ -21,41 +20,15 @@
 <script>
   const canvas = document.getElementById('game');
   const ctx = canvas.getContext('2d');
-  
+
+  function draw() {
   ctx.beginPath();
-  ctx.rect(40, 60, 70, 70);
-  ctx.fillStyle = '#FF1493';
+  ctx.rect(240, 290, 10, 0, Math.PI * 2);
+  ctx.fillStyle = '#0095DD'
   ctx.fill();
   ctx.closePath();
-  
-  ctx.beginPath();
-  ctx.arc(240, 160, 20, 0, Math.PI * 2, false);
-  ctx.fillStyle = 'purple';
-  ctx.fill();
-  ctx.closePath();
-
-  ctx.beginPath();
-  ctx.rect(160, 10, 100, 40);
-  ctx.strokeStyle = 'rgba(0, 0, 255, 0.5)';
-  ctx.stroke();
-  ctx.closePath();
-
-  function strokeStar(x, y, r, n, inset) {
-    ctx.save();
-    ctx.beginPath();
-    ctx.translate(x, y);
-    ctx.moveTo(0, 0 - r);
-    for (var i = 0; i < n; i++) {
-        ctx.rotate(Math.PI / n);
-        ctx.lineTo(0, 0 - (r * inset));
-        ctx.rotate(Math.PI / n);
-        ctx.lineTo(0, 0 - r);
-    }
-    ctx.closePath();
-    ctx.fill();
-    ctx.restore();
-}
-strokeStar(310, 260, 20, 8, 5)
+  }
+  setInterval(draw, 10);
   
 </script>
 </body>
