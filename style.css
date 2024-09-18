@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+}
+
+.wrapper {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+canvas {
+    background: #eee;
+    margin: 0 auto;
+}
