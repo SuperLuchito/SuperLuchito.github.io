@@ -34,45 +34,81 @@ const data = {
   name: "",
   age: 24,
   mail: "email@mail.ru",
-  roles: ["user", "owner"],
+  roles: ["user", "owner", 1111],
   isAdmin: true,
   image: {
     url: "url_address",
     title: "some title",
-    size: 1024.43
+    size: 100
   },
 }
 
-function validateEmail(email) {
+function validateEmail(mail) {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
+    return re.test(String(mail).toLowerCase());
 }
 
-let test = 'email@mail.ru'
+function validImage(image) {
+  if ((typeof data.image.url === 'string') && +
+      (typeof data.image.title === 'string') && +
+      (typeof data.image.size === 'number')) {
+    console.log('Image проверен')
+  } else {
+    console.log('Вы не вставили Image или вставили её не правильно')
+  }
 
-console.log(validateEmail(data.mail))
+}
+
+function validArray(arr) {
+  if (Array.isArray(data.roles) === true) {
+    let count = 0
+    for (let i = 0; i < data.roles.length; i++) {
+      if (typeof data.roles[i] === 'string') {
+        count += 1
+      }
+    }
+    if (count === data.roles.length) {
+      console.log('Массив проверен')
+    } else {
+      console.log("Все элементы массивы должны быть типа 'String'")
+    }
+  } else {
+    console.log('Вы не ввели Массив или ввели его неправильно')
+  }
+}
 
 
-// function validObject(data) {
+function validObject(data) {
   
-//   if (typeof data.name === 'string') {
-//     console.log('Имя проверено')
-//   } else if (typeof data.name === 'undefined') {
-//     console.log('Вы не ввели Имя или ввели его неправильно')
-//   }
+  if (typeof data.name === 'string') {
+    console.log('Имя проверено')
+  } else {
+    console.log('Вы не ввели Имя или ввели его неправильно')
+  }
   
-//   if (typeof data.age === 'number') {
-//     console.log('Возраст проверен')
-//   } else if (typeof data.name === 'undefined') {
-//     console.log('Вы не ввели Имя или ввели его неправильно')
-//   }
+  if (typeof data.age === 'number') {
+    console.log('Возраст проверен')
+  } else {
+    console.log('Вы не ввели Имя или ввели его неправильно')
+  }
   
-//   if (typeof data.age === 'number') {
-//     console.log('Доступ разрешён')
-//   } else if (typeof data.name === 'undefined') {
-//     console.log('Вы не ввели Имя или ввели его неправильно')
-//   }
+  if (validateEmail(data.mail) === true) {
+    console.log('Mail проверен')
+  } else {
+    console.log('Вы не ввели Mail или ввели его неправильно')
+  }
   
-// }
+  console.log(validArray(data.roles))
+  
+  if (typeof data.isAdmin === 'boolean') {
+    console.log('Root проверен')
+  } else {
+    console.log('Вы не ввели Root или ввели его неправильно')
+  }
+  
+  console.log(validImage())
+  
 
-// console.log(validObject(data))
+}
+
+console.log(validObject(data))
