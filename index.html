@@ -29,3 +29,50 @@
 </body>
 
 </html>
+
+const data = {
+  name: "",
+  age: 24,
+  mail: "email@mail.ru",
+  roles: ["user", "owner"],
+  isAdmin: true,
+  image: {
+    url: "url_address",
+    title: "some title",
+    size: 1024.43
+  },
+}
+
+function validateEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
+let test = 'email@mail.ru'
+
+console.log(validateEmail(data.mail))
+
+
+// function validObject(data) {
+  
+//   if (typeof data.name === 'string') {
+//     console.log('Имя проверено')
+//   } else if (typeof data.name === 'undefined') {
+//     console.log('Вы не ввели Имя или ввели его неправильно')
+//   }
+  
+//   if (typeof data.age === 'number') {
+//     console.log('Возраст проверен')
+//   } else if (typeof data.name === 'undefined') {
+//     console.log('Вы не ввели Имя или ввели его неправильно')
+//   }
+  
+//   if (typeof data.age === 'number') {
+//     console.log('Доступ разрешён')
+//   } else if (typeof data.name === 'undefined') {
+//     console.log('Вы не ввели Имя или ввели его неправильно')
+//   }
+  
+// }
+
+// console.log(validObject(data))
